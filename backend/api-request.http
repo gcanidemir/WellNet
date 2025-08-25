@@ -1,0 +1,59 @@
+# Using Vscode Rest Client extension to send these requests.
+
+# @name login
+POST http://localhost:4004/auth/login
+Content-Type: application/json
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+@token = {{login.response.body.token}}
+
+### ---------------------------------
+
+# @name validate
+GET http://localhost:4004/auth/validate
+Authorization: Bearer {{ token }}
+
+### ---------------------------------
+
+# @name get-patients
+GET http://localhost:4004/api/patients
+Authorization: Bearer {{ token }}
+
+### ---------------------------------
+
+# @name create-patient
+POST http://localhost:4004/api/patients
+Authorization: Bearer {{ token }}
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "test@example.com",
+    "address": "123 Main St",
+    "dateOfBirth": "1990-01-01",
+    "registeredDate": "2023-10-01"
+}
+
+### ---------------------------------
+
+# @name update-patient
+PUT http://localhost:4004/api/patients/123e4567-e89b-12d3-a456-426614174001
+Authorization: Bearer {{ token }}
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "test2@example.com",
+    "address": "123 Main St",
+    "dateOfBirth": "1990-01-01"
+}
+
+### ---------------------------------
+
+# @name delete-patient
+DELETE http://localhost:4004/api/patients/123e4567-e89b-12d3-a456-426614174001
+Authorization: Bearer {{ token }}

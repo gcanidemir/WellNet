@@ -1,0 +1,10 @@
+# Using Postman to send this request.
+
+# Create Billing Account
+GRPC localhost:9001/BillingService/CreateBillingAccount
+
+{
+    "patientId": "123456789",
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+}
