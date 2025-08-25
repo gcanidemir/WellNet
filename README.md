@@ -4,6 +4,10 @@ WellNet is a comprehensive healthcare management system built using microservice
 
 ## System Architecture
 
+Below is the high-level architecture diagram of the WellNet platform:
+
+![WellNet Backend Architecture](./backend/backend-architecture.png)
+
 The system consists of the following microservices:
 
 - **API Gateway Service**: Central entry point that handles routing
